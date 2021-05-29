@@ -1,4 +1,6 @@
 def kadanes_1(A):
+
+    # Whoohoo! this is the alt branch!
     total = gcs_value = A[0]
     total_list = [A[0]]
     gcs = [A[0]]
