@@ -46,6 +46,8 @@ def divide_and_conquer(A,l,r):
         
         Our left hand max is our centerpoint, and the 
         sum is currently our center spot
+        
+        we're gonna add out and find the max contiguous sum, that includes our centerpoint.
         '''
         c = (int)((1 + r)/2)
         lhmax = A[c]
@@ -54,12 +56,26 @@ def divide_and_conquer(A,l,r):
             lhsum = lhsum + A[i]
             if lhsum > lhmax:
                 lhmax = lhsum
+
+        '''
+        the same exact process here. We are going to find the greatest contiguous sum
+        going from the right here. 
+        '''
         rhmax = A[c+1]
         rhsum = 0
         for j in range(c+1, r+1):
             rhsum = rhsum + A[j]
             if rhsum > rhmax:
                 rhmax = rhsum
+
+        '''
+        cmax is the combination fo the left and right. We know that we can do this because
+        both lmax and rmax include our center spot. So the cmax is a perfectly valid 
+        contiguous sum 
+        
+        We will also be guaranteed to use cmax here. The goal of each recursive call
+        is to find the greatest l/r values that include this center point. 
+        '''
         cmax = lhmax + rhmax
         lmax = divide_and_conquer(A, l, c)
         rmax = divide_and_conquer(A,c+1,r)
