@@ -2,7 +2,7 @@ class ESG:
 
     def __init__(self):
         self.values = {
-            'C': 0,
+            'F': 0,
             'CC': 1,
             'CCC': 2,
             'B': 3,
