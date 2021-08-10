@@ -1,16 +1,13 @@
-def lengthOfLIS(nums):
-    tails = [0] * len(nums)
-    size = 0
-    for x in nums:
-        i, j = 0, size
-        while i != j:
-            m = int((i + j) / 2)
-            if tails[m] < x:
-                i = m + 1
-            else:
-                j = m
-        tails[i] = x
-        size = max(i + 1, size)
-    return size
+def longest_increasing_subsequence(A):
 
-print(lengthOfLIS([10,22,9,33,21,50,41,60]))
+    maxes = [1] * len(A)
+    maximum = 0
+    for i in range(len(A)):
+        curr_max = 0
+        for j in range(i):
+            if A[j] < A[i]:
+                curr_max = max(curr_max, maxes[j])
+        maxes[i] = curr_max
+        maximum = max(curr_max, maximum)
+
+    return maximum
