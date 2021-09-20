@@ -29,3 +29,7 @@ def optimal_solution(A):
         maximum = max(maximum[i] + A[i], maximum[i+1])
         previous.append(maximum)
     return maximum
+
+
+
+
